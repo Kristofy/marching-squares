@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./bootstrap.css">
+    <script src="./opensimplex.js"></script>
+    <title>marching squares</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    #container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        flex-wrap: wrap;
+
+    }
+
+    input[type="range"]{
+        transform: translateY(35%);
+    }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="parent"></div>
+        <div id="menu" class="form bg-info mx-5 p-3 border rounded border-dark">
+            <h1 class="large mx-auto">Menü:</h1>
+            <div class="d-inline">
+                <label for="res" class="form-label px-2 medium" >Resolution:</label>
+                <input type="range" min="3" max="50" step="1" value="30" class="form-range float-right w-50" id="res"><br>
+            </div>
+            <div class="d-inline">
+                <label for="time" class="form-label px-2 medium">Time: </label>
+                <input type="range" min="0.0005" max="0.1" step="0.0005" value="0.005" class="form-range w-50 float-right"id="time"><br>
+            </div>
+
+            <label for="interpolation" class="form-label px-2 medium bold mb-0">Interpolation:</label><br>
+            <div class="form-check mx-2">
+                <input class="form-check-input" type="radio" name="interpolation" id="no-interpolation" checked>
+                <label class="form-check-label" for="no-interpolation">
+                   No interpolation
+                </label>
+            </div>
+            <div class="form-check mx-2">
+                <input class="form-check-input" type="radio" name="interpolation" id="linear-interpolation">
+                <label class="form-check-label" for="linear-interpolation">
+                   Linear interpolation
+                </label>
+            </div>
+            
+
+            <label for="mode" class="form-label px-2 pt-2 mb-0 medium bold">Points:</label><br>
+            <div class="form-check mx-2">
+                <input class="form-check-input" type="radio" name="points" id="none" checked>
+                <label class="form-check-label" for="none">
+                   None
+                </label>
+            </div>
+            <div class="form-check mx-2">
+                <input class="form-check-input" type="radio" name="points" id="in-bounds">
+                <label class="form-check-label" for="in-bounds">
+                   In bounds
+                </label>
+            </div>
+            <div class="form-check mx-2">
+                <input class="form-check-input" type="radio" name="points" id="field">
+                <label class="form-check-label" for="field">
+                   Field
+                </label>
+            </div>
+
+            <label for="mode" class="form-label px-2 pt-2 mb-0 medium bold">Mode:</label><br>
+            <div class="form-check mx-2">
+                <input class="form-check-input" type="radio" name="mode" id="animate" checked>
+                <label class="form-check-label" for="animate">
+                    Animate
+                </label>
+            </div>
+            <div class="form-check mx-2">
+                <input class="form-check-input" type="radio" name="mode" id="stop">
+                <label class="form-check-label" for="stop">
+                   Stop
+                </label>
+            </div>
+            <div class="form-check mx-2">
+                <input class="form-check-input" type="radio" name="mode" id="draw">
+                <label class="form-check-label" for="draw">
+                   Draw
+                </label>
+            </div>
+
+            <div class="row mt-3 mx-2 text-center">
+                <div class="col-4 p-0">
+                    <input type="button" value="Apply" id="change" class="btn btn-primary m-0 border-light">
+                </div>
+                <div class="col-8 p-0">
+                    <small class="col-9">Only necessary after changing the resolution</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="p5.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
